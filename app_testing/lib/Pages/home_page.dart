@@ -15,7 +15,9 @@ class HomePage extends StatelessWidget {
       appBar: Toolbar(
         title: "5mintest",
          actions:[
-          IconButton(onPressed: (){},
+          IconButton(onPressed: (){
+             Navigator.of(context).pushNamed("/location");
+          },
            icon: Icon(Icons.location_on_outlined))
          ] 
          ),

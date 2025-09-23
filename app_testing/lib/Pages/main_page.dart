@@ -13,6 +13,7 @@ class _HomePageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       body: pages[currentIndex.index],
      bottomNavigationBar: MyBottomNavigation(
       currentIndex: currentIndex.index,
