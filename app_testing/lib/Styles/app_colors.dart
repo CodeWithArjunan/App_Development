@@ -10,4 +10,5 @@ class AppColors {
   static const black=Color(0xff000000);
   static const white=Color(0xffffffff);
   static final fildcolor=const Color.fromARGB(255, 245, 243, 243).withOpacity(0.3);
+  static final boxcolor=const Color.fromARGB(255, 245, 243, 243).withOpacity(0.3);
 }
