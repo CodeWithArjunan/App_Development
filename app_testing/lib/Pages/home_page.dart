@@ -27,6 +27,11 @@ class HomePage extends StatelessWidget {
       },itemCount: users.length,
       separatorBuilder: (BuildContext context,int index){
           return SizedBox(height: 24);
+              // Container(
+            //   height: 20,
+          //   width: 20,
+           //   color: Colors.red,
+            // );
       },
       )
     );
