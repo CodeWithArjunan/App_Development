@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
          '/main':(context) => MainPage(),
          '/profile':(context)=> ProfilePage(),
          '/edit_profile':(context)=> EditProfilePage(),
-         '/location' : (context)=> NearbyPage()
+         '/location' : (context)=> NearbyPage(),
       },
     );
   }
