@@ -42,10 +42,6 @@ macktt(){
   }
 }
 }
-//  Widget mackpost(){
-//    return (PostItem());
-//     }
-//   }
 
 
 
