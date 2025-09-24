@@ -1,6 +1,7 @@
 import 'package:app_testing/Styles/app_text.dart';
 import 'package:app_testing/components/toolbar.dart';
 import 'package:app_testing/components/user_avatar.dart';
+import 'package:app_testing/model/user.dart';
 import 'package:flutter/material.dart';
 
 enum ProfileMenu{
@@ -8,6 +9,8 @@ enum ProfileMenu{
   logout
 }
 class ProfilePage extends StatelessWidget{
+  final User user;
+  const ProfilePage({super.key, required this.user});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,9 +56,9 @@ class ProfilePage extends StatelessWidget{
         children: [
          UserAvatar(size: 90),
         SizedBox(height: 12,),
-        Text("Mickle",style: AppText.header2,),
+        Text('${user.name}',style: AppText.header2,),
         SizedBox(height: 5,),
-        Text("Jacksen",style: AppText.subtitle1),
+        Text("${user.name}",style: AppText.subtitle1),
         SizedBox(height: 16),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

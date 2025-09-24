@@ -1,8 +1,11 @@
 import 'package:app_testing/Pages/home_page.dart';
 import 'package:app_testing/Pages/profile_page.dart';
+import 'package:app_testing/model/user.dart';
 import 'package:flutter/material.dart';
 
 class MainPage extends StatefulWidget{
+  final User user;
+  const MainPage({super.key, required this.user});
   @override
   State<MainPage> createState() => _HomePageState();
 }
@@ -14,7 +17,7 @@ class _HomePageState extends State<MainPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      body: pages[currentIndex.index],
+      body: pages()[currentIndex.index],
      bottomNavigationBar: MyBottomNavigation(
       currentIndex: currentIndex.index,
        ontap: (value){
@@ -44,7 +47,7 @@ class _HomePageState extends State<MainPage> {
     );
   }
 
-  final pages=[
+   pages()=>[
     HomePage(),
     Center(
       child: Text("Favarites"),
@@ -55,7 +58,7 @@ class _HomePageState extends State<MainPage> {
      Center(
       child: Text("message"),
     ),
-    ProfilePage()
+    ProfilePage(user: User("m5", '1234', 'killer', '@gamil.com')),
   ];
 
 }

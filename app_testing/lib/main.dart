@@ -5,6 +5,7 @@ import 'package:app_testing/Pages/main_page.dart';
 import 'package:app_testing/Pages/nearby_page.dart';
 import 'package:app_testing/Pages/profile_page.dart';
 import 'package:app_testing/Styles/app_colors.dart';
+import 'package:app_testing/model/user.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -27,9 +28,9 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/':(context) => LoginPage(),
-        '/home' :(context) => MainPage(),
-         '/main':(context) => MainPage(),
-         '/profile':(context)=> ProfilePage(),
+        '/home' :(context) => MainPage(user: User("m5", '1234', 'killer', '@gamil.com')),
+         '/main':(context) => MainPage(user: User("m5", '1234', 'killer', '@gamil.com'),),
+         '/profile':(context)=> ProfilePage(user: User("m5", '1234', 'killer', '@gamil.com')),
          '/edit_profile':(context)=> EditProfilePage(),
          '/location' : (context)=> NearbyPage(),
       },

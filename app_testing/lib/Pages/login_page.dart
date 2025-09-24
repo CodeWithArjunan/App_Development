@@ -1,11 +1,40 @@
+import "package:app_testing/Pages/home_page.dart";
+import "package:app_testing/Pages/main_page.dart";
+import "package:app_testing/model/user.dart";
 import "package:flutter/material.dart";
 
 class LoginPage extends StatefulWidget {
+  
+
+  LoginPage({super.key,});
+
   @override
-  State<LoginPage> createState() => _OnboardingState();
+  State<LoginPage> createState() => _LoginPageState();
 }
 
-class _OnboardingState extends State<LoginPage> {
+class _LoginPageState extends State<LoginPage> {
+  final userCtrl = TextEditingController();
+
+  final passCtrl = TextEditingController();
+
+  User? loggedInUser;
+
+  void checkLogin() {
+    final username = userCtrl.text;
+    final password = passCtrl.text;
+
+    final user = mockUsers.firstWhere(
+      (u) => u.username == username && u.password == password,
+      orElse: () => User('', '', '', ''),
+
+    );
+  setState(() => loggedInUser = user);
+    
+  }
+
+  var username='';  
+  //TextEditingController();
+  var password='';  
   @override
   Widget build(BuildContext context) {
     return Scaffold(    //body:SinglechildScrollView( )
@@ -40,6 +69,9 @@ class _OnboardingState extends State<LoginPage> {
                     Spacer(),
                     //SizedBox(height: 50),
                     TextField(
+                      onChanged: (value){
+                        username=value;
+                      },
                       decoration: InputDecoration(
                         hintText: "Username",
                         border: OutlineInputBorder(
@@ -51,8 +83,11 @@ class _OnboardingState extends State<LoginPage> {
                     ),
                    SizedBox(height: 10,),
                     TextField(
+                      onChanged: (value){
+                        password=value;
+                      },
                       decoration: InputDecoration(
-                        hintText: "Username",
+                        hintText: "Password",
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(12)),
                         ),
@@ -74,7 +109,14 @@ class _OnboardingState extends State<LoginPage> {
                       width: 250,
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.of(context).pushReplacementNamed('/home');  //().pushNAme('/home')
+                          loggedInUser == null ? LoginPage() : HomePage();
+                           final user =doLogin();
+                          Navigator.of(context).push(
+                            PageRouteBuilder(
+                              pageBuilder: (context , Animation,secondaryAnimation){
+                                return MainPage(user: user );
+
+                          }));  //().pushNAme('/home')
                           print("Login is clicked");
                         },
                         style: ElevatedButton.styleFrom(
@@ -160,4 +202,19 @@ class _OnboardingState extends State<LoginPage> {
       ),
     );
   }
+
+doLogin() async {
+  final body={
+    'username':username,
+    'password':password
+  };
+  if(username=="m1" && password=='123'){
+    //print("logined user1");
+    print(body.values);
+    
+
+  }else{
+    print("Not Login");
+  }
+}
 }

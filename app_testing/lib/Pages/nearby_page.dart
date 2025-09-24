@@ -187,13 +187,13 @@ class ExplorePage extends StatelessWidget{
         SizedBox(height: 20,),
         AppTextField(hint: "Enter Your location",),
         SizedBox(height: 14),
-        AppTextField(hint: "Enter Your location"),
+        AppTextField(hint: "Enter Your Distination"),
         SizedBox(height: 14),
         Container(
           child: Column(
             children: [
-              Image.asset("assets/temp/map.jpg", width: MediaQuery.of(context).size.width/3,
-              height:  MediaQuery.of(context).size.width/3, )
+              Image.asset("assets/temp/map.jpg", width: MediaQuery.of(context).size.width,
+              height:  MediaQuery.of(context).size.height/2, )
             ],
           ),
         )
